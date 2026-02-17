@@ -1,0 +1,665 @@
+/* =====================================================================
+   FLUENTERRA - Premium Typography System
+   Business Operations Consulting | Executive-Level Design
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   --------------------------------------------------------------------- */
+:root {
+  /* ========== FONT FAMILIES ========== */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-accent: 'Plus Jakarta Sans', sans-serif;
+
+  /* ========== TYPE SCALE (Desktop - 1.250 ratio) ========== */
+  --text-xs: 0.75rem;      /* 12px - Fine print, labels */
+  --text-sm: 0.875rem;     /* 14px - Small text, captions */
+  --text-base: 1rem;       /* 16px - Body text */
+  --text-lg: 1.125rem;     /* 18px - Lead paragraphs */
+  --text-xl: 1.25rem;      /* 20px - H4, subheadings */
+  --text-2xl: 1.5rem;      /* 24px - H3 */
+  --text-3xl: 1.875rem;    /* 30px - H2 */
+  --text-4xl: 2.25rem;     /* 36px - H1 mobile */
+  --text-5xl: 3rem;        /* 48px - H1 desktop */
+  --text-6xl: 3.75rem;     /* 60px - Hero headlines */
+
+  /* ========== FONT WEIGHTS ========== */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ========== LINE HEIGHTS ========== */
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 1.75;
+
+  /* ========== LETTER SPACING ========== */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.015em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ========== COLOR HIERARCHY ========== */
+  /* Primary Text Colors */
+  --color-heading: #0f172a;        /* Slate 900 - Primary headings */
+  --color-body: #334155;           /* Slate 700 - Body text */
+  --color-muted: #64748b;          /* Slate 500 - Secondary text */
+  --color-subtle: #94a3b8;         /* Slate 400 - Tertiary text */
+  
+  /* Accent Colors */
+  --color-primary: #00a63f;        /* Brand green */
+  --color-primary-dark: #008a34;   /* Darker green for hover */
+  --color-secondary: #1e3a5f;      /* Navy - Executive blue */
+  
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;   /* Slate 50 */
+  --color-bg-tertiary: #f1f5f9;    /* Slate 100 */
+
+  /* Dark Mode Colors */
+  --color-heading-dark: #f1f5f9;
+  --color-body-dark: #cbd5e1;
+  --color-muted-dark: #94a3b8;
+
+  /* ========== SPACING RHYTHM (8px base) ========== */
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+}
+
+/* ---------------------------------------------------------------------
+   BASE TYPOGRAPHY STYLES
+   --------------------------------------------------------------------- */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* ---------------------------------------------------------------------
+   HEADINGS
+   --------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-heading);
+  letter-spacing: var(--tracking-tight);
+  margin-top: 0;
+}
+
+/* H1 - Hero Headlines */
+h1, .h1 {
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+  margin-bottom: var(--space-6);
+}
+
+/* H2 - Section Headlines */
+h2, .h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+}
+
+/* H3 - Subsection Headlines */
+h3, .h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-4);
+}
+
+/* H4 - Card/Component Headlines */
+h4, .h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-3);
+}
+
+/* H5 - Small Headlines */
+h5, .h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-2);
+}
+
+/* H6 - Overlines/Labels */
+h6, .h6 {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------------------
+   CUSTOM TITLE CLASSES (Override existing styles)
+   --------------------------------------------------------------------- */
+.title-big {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-3xl) !important;
+  font-weight: var(--weight-semibold) !important;
+  line-height: var(--leading-snug) !important;
+  letter-spacing: var(--tracking-tight) !important;
+  color: var(--color-heading) !important;
+}
+
+.title-small {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-semibold) !important;
+  letter-spacing: var(--tracking-wider) !important;
+  text-transform: uppercase !important;
+  color: var(--color-primary) !important;
+}
+
+.title-service {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-2xl) !important;
+  font-weight: var(--weight-semibold) !important;
+  line-height: var(--leading-snug) !important;
+  color: var(--color-heading) !important;
+}
+
+/* Hero Headline (Banner/Slider) */
+.hero-content h1 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-5xl) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.1 !important;
+  letter-spacing: var(--tracking-tighter) !important;
+  color: #ffffff !important;
+}
+
+/* ---------------------------------------------------------------------
+   PARAGRAPH STYLES
+   --------------------------------------------------------------------- */
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+  margin-bottom: var(--space-4);
+}
+
+/* Lead Paragraph - For introductions */
+.lead, 
+.text-lead,
+.inner-page-para {
+  font-size: var(--text-lg) !important;
+  line-height: var(--leading-relaxed) !important;
+  color: var(--color-body) !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+/* Small Text */
+small, 
+.small,
+.text-small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-muted);
+}
+
+/* Extra Small / Fine Print */
+.text-xs,
+.fine-print {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-subtle);
+}
+
+/* Body Text Variants */
+.text-para {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-base) !important;
+  line-height: var(--leading-relaxed) !important;
+  color: var(--color-body) !important;
+}
+
+/* ---------------------------------------------------------------------
+   NAVIGATION TYPOGRAPHY
+   --------------------------------------------------------------------- */
+.navbar-nav .nav-link {
+  font-family: var(--font-body) !important;
+  font-size: 0.9375rem !important; /* 15px */
+  font-weight: var(--weight-medium) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  text-transform: none !important;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-xl) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.navbar-brand .logo {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-regular) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  opacity: 0.8;
+}
+
+/* ---------------------------------------------------------------------
+   BUTTON TYPOGRAPHY
+   --------------------------------------------------------------------- */
+.btn,
+button,
+[type="submit"] {
+  font-family: var(--font-body) !important;
+  font-size: 0.9375rem !important; /* 15px */
+  font-weight: var(--weight-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  text-transform: none !important;
+  line-height: var(--leading-normal) !important;
+}
+
+.btn-primary,
+.btn-style {
+  font-weight: var(--weight-semibold) !important;
+}
+
+/* Large Button */
+.btn-lg {
+  font-size: var(--text-base) !important;
+  padding: var(--space-4) var(--space-8) !important;
+}
+
+/* Small Button */
+.btn-sm {
+  font-size: var(--text-sm) !important;
+  padding: var(--space-2) var(--space-4) !important;
+}
+
+/* ---------------------------------------------------------------------
+   LINK STYLES
+   --------------------------------------------------------------------- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+/* Content Links (within paragraphs) */
+p a,
+.content a {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 166, 63, 0.3);
+  text-underline-offset: 2px;
+}
+
+p a:hover,
+.content a:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+/* ---------------------------------------------------------------------
+   FOOTER TYPOGRAPHY
+   --------------------------------------------------------------------- */
+.footer-title-29 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  text-transform: uppercase !important;
+}
+
+footer p,
+footer li,
+footer a {
+  font-size: var(--text-sm) !important;
+  line-height: var(--leading-relaxed) !important;
+}
+
+.copy-footer-29 {
+  font-size: var(--text-sm) !important;
+  color: var(--color-muted) !important;
+}
+
+/* ---------------------------------------------------------------------
+   FORM TYPOGRAPHY
+   --------------------------------------------------------------------- */
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-subtle);
+  font-weight: var(--weight-regular);
+}
+
+label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-heading);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------------------
+   BLOCKQUOTE & TESTIMONIALS
+   --------------------------------------------------------------------- */
+blockquote,
+.testimonial-quote {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+}
+
+.testimonial-author {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-heading);
+}
+
+.testimonial-role {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  font-weight: var(--weight-regular);
+}
+
+/* ---------------------------------------------------------------------
+   STATISTICS / NUMBERS
+   --------------------------------------------------------------------- */
+.stat-number,
+.counter-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-none);
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* ---------------------------------------------------------------------
+   LIST STYLES
+   --------------------------------------------------------------------- */
+ul, ol {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+}
+
+.service-list li a {
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-relaxed) !important;
+}
+
+/* ---------------------------------------------------------------------
+   CARD TYPOGRAPHY
+   --------------------------------------------------------------------- */
+.card-title,
+.grids5-info .title {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-xl) !important;
+  font-weight: var(--weight-semibold) !important;
+  line-height: var(--leading-snug) !important;
+  color: var(--color-heading) !important;
+}
+
+.card-text {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+}
+
+/* Blog Card Typography */
+.blog-info .title {
+  font-family: var(--font-heading) !important;
+  font-size: var(--text-xl) !important;
+  font-weight: var(--weight-semibold) !important;
+  line-height: var(--leading-snug) !important;
+}
+
+/* ---------------------------------------------------------------------
+   RESPONSIVE TYPOGRAPHY
+   --------------------------------------------------------------------- */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  :root {
+    --text-5xl: 2.75rem;    /* 44px */
+    --text-6xl: 3.25rem;    /* 52px */
+  }
+  
+  .title-big {
+    font-size: 2rem !important; /* 32px */
+  }
+  
+  .hero-content h1 {
+    font-size: 2.75rem !important;
+  }
+}
+
+/* Desktop (992px and up) */
+@media (min-width: 992px) {
+  :root {
+    --text-5xl: 3rem;       /* 48px */
+    --text-6xl: 3.75rem;    /* 60px */
+  }
+  
+  .title-big {
+    font-size: 2.25rem !important; /* 36px */
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem !important;
+  }
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  :root {
+    --text-5xl: 3.5rem;     /* 56px */
+    --text-6xl: 4rem;       /* 64px */
+  }
+  
+  .title-big {
+    font-size: 2.5rem !important; /* 40px */
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem !important;
+    max-width: 900px;
+  }
+}
+
+/* Mobile (max 575px) */
+@media (max-width: 575.98px) {
+  :root {
+    --text-3xl: 1.5rem;     /* 24px */
+    --text-4xl: 1.75rem;    /* 28px */
+    --text-5xl: 2rem;       /* 32px */
+    --text-6xl: 2.5rem;     /* 40px */
+  }
+  
+  h1, .h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2, .h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3, .h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  .title-big {
+    font-size: 1.5rem !important;
+    line-height: var(--leading-snug) !important;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  .lead,
+  .text-lead {
+    font-size: var(--text-base) !important;
+  }
+  
+  .navbar-brand {
+    font-size: var(--text-lg) !important;
+  }
+}
+
+/* Small Mobile (max 374px) */
+@media (max-width: 374.98px) {
+  .hero-content h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .title-big {
+    font-size: 1.375rem !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   DARK MODE TYPOGRAPHY
+   --------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --color-heading: var(--color-heading-dark);
+  --color-body: var(--color-body-dark);
+  --color-muted: var(--color-muted-dark);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .title-big,
+[data-theme="dark"] .title-service {
+  color: var(--color-heading-dark) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .text-para {
+  color: var(--color-body-dark) !important;
+}
+
+/* ---------------------------------------------------------------------
+   UTILITY CLASSES
+   --------------------------------------------------------------------- */
+/* Text Alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Font Weights */
+.font-light { font-weight: var(--weight-light) !important; }
+.font-regular { font-weight: var(--weight-regular) !important; }
+.font-medium { font-weight: var(--weight-medium) !important; }
+.font-semibold { font-weight: var(--weight-semibold) !important; }
+.font-bold { font-weight: var(--weight-bold) !important; }
+
+/* Text Sizes */
+.text-xs { font-size: var(--text-xs) !important; }
+.text-sm { font-size: var(--text-sm) !important; }
+.text-base { font-size: var(--text-base) !important; }
+.text-lg { font-size: var(--text-lg) !important; }
+.text-xl { font-size: var(--text-xl) !important; }
+.text-2xl { font-size: var(--text-2xl) !important; }
+.text-3xl { font-size: var(--text-3xl) !important; }
+
+/* Text Colors */
+.text-heading { color: var(--color-heading) !important; }
+.text-body { color: var(--color-body) !important; }
+.text-muted { color: var(--color-muted) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.text-white { color: #ffffff !important; }
+
+/* Line Heights */
+.leading-tight { line-height: var(--leading-tight) !important; }
+.leading-snug { line-height: var(--leading-snug) !important; }
+.leading-normal { line-height: var(--leading-normal) !important; }
+.leading-relaxed { line-height: var(--leading-relaxed) !important; }
+
+/* Letter Spacing */
+.tracking-tight { letter-spacing: var(--tracking-tight) !important; }
+.tracking-normal { letter-spacing: var(--tracking-normal) !important; }
+.tracking-wide { letter-spacing: var(--tracking-wide) !important; }
+.tracking-wider { letter-spacing: var(--tracking-wider) !important; }
+
+/* Text Transform */
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+
+/* Max Width for Readability */
+.prose {
+  max-width: 65ch;
+}
+
+.prose-wide {
+  max-width: 75ch;
+}
