@@ -558,11 +558,20 @@
                 <h2 class="title-big">Ready to Transform Your Business Operations?</h2>
                 <p class="mt-3 pr-lg-5">Subscribe to receive our exclusive SME Operations Playbook, industry insights, and actionable strategies delivered directly to your inbox. Join hundreds of business leaders who trust Fluenterra.</p>
             </div>
-            <form action="#" class="subscribe mt-5" method="post">
+            <form id="subscribeForm" action="https://formsubmit.co/info@fluenterra.com" class="subscribe mt-5" method="POST">
+                <!-- FormSubmit config -->
+                <input type="hidden" name="_subject" value="New Playbook Subscriber - Book a Call">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://fluenterra.com/index.html#subscribe">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_autoresponse" value="Thank you for subscribing to Fluenterra! &#10;&#10;Our team will reach out to you shortly with the SME Operations Playbook and to schedule your free strategy call. &#10;&#10;In the meantime, feel free to contact us: &#10;Phone: +94 77 553 6665 &#10;Email: info@fluenterra.com &#10;Address: 345 Biyagama Road, Singharamulla, Kelaniya, Sri Lanka &#10;&#10;We look forward to helping you transform your business operations! &#10;&#10;Warm regards, &#10;The Fluenterra Team">
+                <input type="hidden" name="message" value="New subscriber has requested the SME Operations Playbook and wants to book a call. Please reach out to them. Contact Fluenterra: Phone +94 77 553 6665 | Email info@fluenterra.com | 345 Biyagama Road, Singharamulla, Kelaniya, Sri Lanka.">
                 <div class="input-group-text"><span class="fa fa-paper-plane"></span></div>
                 <input type="email" name="email" placeholder="Your Email Address" required="">
-                <button class="btn btn-style btn-primary">Get Free Playbook</button>
+                <button type="submit" id="subscribeBtn" class="btn btn-style btn-primary">Get Free Playbook</button>
               </form>
+              <div id="subscribeMessage" style="display:none; padding:12px 20px; border-radius:8px; margin-top:15px; text-align:center; font-weight:500;"></div>
         </div>
     </div>
 </section>
@@ -779,6 +788,54 @@
   <!--//MENU-JS-->
   
   <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- Subscribe Form Submission -->
+  <script>
+    (function () {
+      var form = document.getElementById('subscribeForm');
+      var btn = document.getElementById('subscribeBtn');
+      var msgBox = document.getElementById('subscribeMessage');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = form.querySelector('input[name="email"]').value.trim();
+        if (!email) { showMsg('Please enter your email address.', 'error'); return; }
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) { showMsg('Please enter a valid email address.', 'error'); return; }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="fa fa-spinner fa-spin mr-2"></span> Sending...';
+        msgBox.style.display = 'none';
+
+        var formData = new FormData(form);
+        fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (res.ok) {
+              showMsg('Thank you for subscribing! A confirmation email has been sent to your inbox. Our team will reach out to you shortly.', 'success');
+              form.reset();
+            } else { throw new Error('Failed'); }
+          })
+          .catch(function () {
+            showMsg('Something went wrong. Please email us directly at info@fluenterra.com or call +94 77 553 6665.', 'error');
+          })
+          .finally(function () {
+            btn.disabled = false;
+            btn.innerHTML = 'Get Free Playbook';
+          });
+      });
+
+      function showMsg(text, type) {
+        msgBox.textContent = text;
+        msgBox.style.display = 'block';
+        if (type === 'success') {
+          msgBox.style.background = '#d4edda'; msgBox.style.color = '#155724'; msgBox.style.border = '1px solid #c3e6cb';
+        } else {
+          msgBox.style.background = '#f8d7da'; msgBox.style.color = '#721c24'; msgBox.style.border = '1px solid #f5c6cb';
+        }
+      }
+    })();
+  </script>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
