@@ -10711,7 +10711,7 @@ nav ul li a:hover {
 .w3l-progress .progress-bar.gradient-1:before {
   content: "";
   position: absolute;
-  right: 20%;
+  right: 5%;
   top: 90%;
   border-radius: 50%;
   transform: translate(50%, -50%); }
@@ -10725,8 +10725,8 @@ nav ul li a:hover {
 .w3l-progress .progress-bar.gradient-2:before {
   content: "";
   position: absolute;
-  right: 5%;
-  top: 90%;
+  right: 11%;
+  top: 95%;
   border-radius: 50%;
   transform: translate(50%, -50%); }
 
@@ -10739,8 +10739,8 @@ nav ul li a:hover {
 .w3l-progress .progress-bar.gradient-3:before {
   content: "";
   position: absolute;
-  right: 40%;
-  top: 90%;
+  right: 7%;
+  top: 95%;
   border-radius: 50%;
   transform: translate(50%, -50%); }
 
@@ -10753,8 +10753,8 @@ nav ul li a:hover {
 .w3l-progress .progress-bar.gradient-4:before {
   content: "";
   position: absolute;
-  right: 15%;
-  top: 90%;
+  right: 9%;
+  top: 95%;
   border-radius: 50%;
   transform: translate(50%, -50%); }
 
